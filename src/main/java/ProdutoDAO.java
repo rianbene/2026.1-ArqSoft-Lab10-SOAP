@@ -12,15 +12,19 @@ public class ProdutoDAO {
         bdMock.put(produto.getId(), produto);
     }
 
-    public String lerProduto(){
-        return;
+    public Produto lerProduto(Integer id){
+        return bdMock.get(id);
     }
 
     public void atualizarProduto(Produto produto){
-
+        if (bdMock.containsKey(produto.getId())){
+            bdMock.put(produto.getId(), produto);
+        }
     }
 
-    public void excluirProduto(){
-
+    public void excluirProduto(Produto produto){
+        if (bdMock.containsKey(produto.getId())) {
+            bdMock.remove(produto);
+        }
     }
 }
